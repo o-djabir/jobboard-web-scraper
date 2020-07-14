@@ -3,15 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 </head>
 <body>
 
-<h1>Our job list</h1>
-<ul>
-	{% for list in job_list %}
-  		<li> {{list}} </li>
-  	{% endfor %}	
-</ul>
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">Job Title</th>
+			<th scope="col">Company</th>
+			<th scope="col">Jobboard</th>
+			<th scope="col">Follow link</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for job in job_list %}
+			<tr>
+				<td>{{job.job_title}}</th>
+				<td>{{job.company_name}}</th>
+				<td>{{job.jobboard}}</th>
+				<td><a href="{{job.job_link}}" target="_blank">Open link</a></th>
+			</tr>	
+		{% endfor %}
+	</tbody>
+</table>
 
 </body>
 </html>

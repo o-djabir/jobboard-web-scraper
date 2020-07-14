@@ -95,7 +95,7 @@ def get_links_indeed(soup):
         for a in div.find_all(name="a", attrs={"data-tn-element":"jobTitle"}):
             link = "https://www.indeed.fr" + a["href"]
             links.append(link)
-    links.reverse()
+    #links.reverse()
     return (links) 
 
 # function to extract all links from letudiant 
@@ -104,7 +104,7 @@ def get_links_letudiant(soup):
     for div in soup.find_all(name="div", attrs={"class":"c-search-result__main"}):
         for a in div.find_all(name="a", attrs={"class":"c-search-result__title"}):
             links.append("https://jobs-stages.letudiant.fr" + a["href"])
-    links.reverse()
+    #links.reverse()
     return (links)
 
 
