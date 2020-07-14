@@ -18,14 +18,15 @@ def get_all_URLs_indeed(URL):
     for i in range(10, 30, 10):
         newURL = URL+"&start="+str(i)
         urls.append(newURL)
-    urls.reverse()
+    #urls.reverse()
     return (urls)
 
 # function to get the url of the pages we want to scrap from letudiant 
 def get_all_URLs_letudiant():
     urls = []
-    urls.append("https://jobs-stages.letudiant.fr/offre-alternance/offres/domaines-242/region-ile-de-france/page-2.html")
     urls.append("https://jobs-stages.letudiant.fr/offre-alternance/offres/domaines-242/region-ile-de-france.html")
+    urls.append("https://jobs-stages.letudiant.fr/offre-alternance/offres/domaines-242/region-ile-de-france/page-2.html")
+    
     return (urls)
 
 # function to turn an array of urls into soups
@@ -51,7 +52,7 @@ def get_job_titles_indeed(soup):
             for span in div1.find_all(name = "span", attrs={"class":"date"}):
                 _ = _ + ", " + span.text.strip()
                 titles.append(_)
-    titles.reverse()
+    #titles.reverse()
     return (titles)
 
 # function to extract all job titles from letudiant
@@ -60,7 +61,7 @@ def get_job_titles_letudiant(soup):
     for div in soup.find_all(name="div", attrs={"class":"c-search-result__main"}):
         for a in div.find_all(name="a", attrs={"class":"c-search-result__title"}):
             titles.append(a.text.strip())
-    titles.reverse()        
+    #titles.reverse()        
     return (titles)
 
 # function to get all the company names from indeed
@@ -72,7 +73,7 @@ def get_company_names_indeed(soup):
         else:    
             for a in span.find_all(name="a", attrs={"data-tn-element":"companyName"}):
                 companies.append(a.text.strip())
-    companies.reverse()
+    #companies.reverse()
     return(companies)  
 
 # function to get all the company names from letudiant
@@ -84,7 +85,7 @@ def get_company_names_letudiant(soup):
     companies = []
     for i in range(0, len(_), 2):
         companies.append(_[i]) 
-    companies.reverse()
+    #companies.reverse()
     return (companies) 
 
 # function to extract all links from indeed 

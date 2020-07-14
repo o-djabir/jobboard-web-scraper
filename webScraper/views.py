@@ -1,9 +1,11 @@
-from django.http import HttpResponse
+from webScraper.models import Offre
+from django.shortcuts import render
 
-def index(request):
-    return HttpResponse("I'm not quite sure what is going on, but I'll find out")
-
-def index2(request):
-    return HttpResponse("Ok, MAYBE, just MAYBE, I'm starting to get it a little ")
+def job_list(request):
+    jobs = Offre.objects.all()
+    context = {
+        'job_list': jobs
+    }
+    return render(request, "webScraper/job_list.html", context)
     
 # Create your views here.
