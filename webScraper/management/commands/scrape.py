@@ -132,7 +132,7 @@ class Command(BaseCommand):
                         job_title = job_t,
                         company_name = company_n,
                         job_link = job_l,
-                        jobboard = "jobs-stages.létudiant.fr"   
+                        jobboard = "jobs-stages.letudiant.fr"   
                     )
                     print('%s ajouté' % (job_t))
                 except:
