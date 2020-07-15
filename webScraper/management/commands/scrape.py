@@ -11,22 +11,16 @@ from bs4 import BeautifulSoup
 from webScraper.models import Offre
 
 # function to get the url of the pages we want to scrape from indeed
-def get_all_URLs_indeed(URL):
+def get_all_URLs_indeed():
     urls = []
-    urls.append(URL)
-    newURL = ""
-    for i in range(10, 30, 10):
-        newURL = URL+"&start="+str(i)
-        urls.append(newURL)
-    #urls.reverse()
+    urls.append("https://www.indeed.fr/emplois?q=alternance+(fullstack+or+full-stack+or+d%C3%A9veloppeur+or+developpeur+or+front-end+or+back-end+or+administrateur)&l=%C3%8Ele-de-France&sort=date&radius=25")
+    urls.append("https://www.indeed.fr/emplois?q=alternance+(fullstack+or+full-stack+or+d%C3%A9veloppeur+or+developpeur+or+front-end+or+back-end+or+administrateur)&l=%C3%8Ele-de-France&sort=date&radius=25&start=10")
     return (urls)
 
 # function to get the url of the pages we want to scrap from letudiant 
 def get_all_URLs_letudiant():
     urls = []
     urls.append("https://jobs-stages.letudiant.fr/offre-alternance/offres/domaines-242/region-ile-de-france.html")
-    urls.append("https://jobs-stages.letudiant.fr/offre-alternance/offres/domaines-242/region-ile-de-france/page-2.html")
-    
     return (urls)
 
 # function to turn an array of urls into soups
@@ -140,9 +134,8 @@ class Command(BaseCommand):
             
         self.stdout.write("Scraping completed for letudiant!")
         
-        # the URLs for the first 3 pages from indeed
-        url_indeed = "https://www.indeed.fr/emplois?q=alternance+informatique&l=%C3%8Ele-de-France&sort=date"
-        ALL_URLS_INDEED = get_all_URLs_indeed(url_indeed)
+        # the URLs for the first 2 pages from indeed
+        ALL_URLS_INDEED = get_all_URLs_indeed()
         
         for soup in all_soups(ALL_URLS_INDEED):
             job_titles = get_job_titles_indeed(soup)
