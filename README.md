@@ -6,14 +6,13 @@ For this application to run, you need to have Python and Django installed, as we
 
 
 
-Once you've installed all the necessities, downloaded and extracted the repository, you should start by creating a superuser. 
+Once you've installed all the necessities, downloaded and extracted the repository, you should start by creating a superuser. On your terminal/command prompt/...etc, navigate to the root of your folder, where the manage.py file is located and run the command:
 
 ```sh
 python manage.py createsuperuser
 ```
 
-
-You can now run the project. On your terminal/command prompt/...etc, navigate to the root of your folder, where the manage.py file is located and run the project with:
+You can now run the project. with:
 
 ```sh
 python manage.py runserver
@@ -27,4 +26,4 @@ You now need to scrape the jobboards and save the job postings. In your terminal
 python manage.py scrape
 ```
 
-Once it's completed, reload your page, and the postings should appear. You can delete them directly from the user interface, or mass delete them from the admin view, and scrape later once additional offers have been posted.
+Once it's completed, reload your page, and the postings should appear. You can delete them directly from the user interface, or mass delete them from the admin view, and scrape later once additional offers have been posted. If you want to edit your search preferences, you will have to edit the file scrape.py.
