@@ -37,9 +37,9 @@
 			<tbody>
 				{% for job in job_list %}
 					<tr>
-						<td>{{job.job_title}}</th>
-						<td>{{job.company_name}}</th>
-						<td>{{job.jobboard}}</th>
+						<td><p class="lead">{{job.job_title}}</p></th>
+						<td><p class="lead">{{job.company_name}}</p></th>
+						<td><p class="lead">{{job.jobboard}}</p></th>
 						<td><a href="{{job.job_link}}" target="_blank" class="btn btn-outline-success">Open</a></th>
 						<td><a href="/webScraper/delete/{{job.id}}" class="btn btn-outline-danger">Delete</a></td>	
 					</tr>	
